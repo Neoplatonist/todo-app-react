@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './main.css'
 
-function Main() {
-    return (
-        <main>
-            Content Data
-        </main>
-    )
+import Form from '../../Form'
+
+class Main extends Component {
+    render() {
+        return (
+            <main>
+                <Form />
+            </main>
+        )
+    }
 }
 
 export default Main
-
