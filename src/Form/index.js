@@ -12,7 +12,12 @@ export default class Form extends Component {
     handleSubmit = event => {
         event.preventDefault()
 
-        // Create a new todo through prop function
+        if (this.state.value !== '') {
+            // Create a new todo through prop function
+            this.props.addTodo(this.state.value)
+            // Reset form back to empty
+            this.setState({ value: '' })
+        }
     }
 
     render() {
