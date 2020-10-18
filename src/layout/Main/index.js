@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './main.css'
 
-function Main() {
-    return (
-        <main>
-            Content Data
-        </main>
-    )
+import Form from '../../Form'
+
+class Main extends Component {
+    state = {
+        todos: []
+    }
+
+    addTodo = value => {
+        this.setState({ todos: [...this.state.todos, value] })
+    }
+
+    render() {
+        return (
+            <main>
+                <Form addTodo={this.addTodo} />
+            </main>
+        )
+    }
 }
 
 export default Main
-
