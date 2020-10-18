@@ -1,9 +1,15 @@
 import React from 'react'
+import ListItem from '../ListItem'
 import './todoList.css'
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, completedTodo, deleteTodo }) => {
     const renderTodos = todos.map((todo, index) => {
-        return <li key={todo + "-" + index}>{todo}</li>
+        return <ListItem
+            key={index}
+            todo={todo}
+            completedTodo={completedTodo}
+            deleteTodo={deleteTodo}
+        />
     })
 
     return (

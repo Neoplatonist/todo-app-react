@@ -10,7 +10,24 @@ class Main extends Component {
     }
 
     addTodo = value => {
-        this.setState({ todos: [...this.state.todos, value] })
+        const todo = {
+            text: value,
+            completed: false
+        }
+        this.setState({ todos: [...this.state.todos, todo] })
+    }
+
+    completedTodo = todo => {
+        const newList = [...this.state.todos]
+        const index = newList.indexOf(todo)
+        newList[index].completed = !newList[index].completed
+
+        this.setState({ todos: newList })
+    }
+
+    deleteTodo = delTodo => {
+        const newList = this.state.todos.filter(todo => todo !== delTodo)
+        this.setState({ todos: newList })
     }
 
     render() {
@@ -18,7 +35,11 @@ class Main extends Component {
             <main>
                 <Form addTodo={this.addTodo} />
 
-                <TodoList todos={this.state.todos} />
+                <TodoList
+                    todos={this.state.todos}
+                    completedTodo={this.completedTodo}
+                    deleteTodo={this.deleteTodo}
+                />
             </main>
         )
     }
