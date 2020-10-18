@@ -7,6 +7,7 @@ const TodoList = ({ todos, completedTodo }) => {
         return <ListItem
             key={index}
             todo={todo}
+            completedTodo={completedTodo}
         />
     })
 

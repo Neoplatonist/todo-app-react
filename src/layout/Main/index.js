@@ -17,12 +17,24 @@ class Main extends Component {
         this.setState({ todos: [...this.state.todos, todo] })
     }
 
+    completedTodo = todo => {
+        const newList = [...this.state.todos]
+        const index = newList.indexOf(todo)
+        newList[index].completed = !newList[index].completed
+
+        this.setState({ todos: newList })
+    }
+
+    deleteTodo = value => {
+
+    }
+
     render() {
         return (
             <main>
                 <Form addTodo={this.addTodo} />
 
-                <TodoList todos={this.state.todos} />
+                <TodoList todos={this.state.todos} completedTodo={this.completedTodo} />
             </main>
         )
     }
