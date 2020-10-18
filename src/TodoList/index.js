@@ -1,9 +1,10 @@
 import React from 'react'
+import ListItem from '../ListItem'
 import './todoList.css'
 
 const TodoList = ({ todos }) => {
     const renderTodos = todos.map((todo, index) => {
-        return <li key={todo + "-" + index}>{todo}</li>
+        return <ListItem key={todo + "-" + index} todo={todo} />
     })
 
     return (
