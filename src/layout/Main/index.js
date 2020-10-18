@@ -10,7 +10,11 @@ class Main extends Component {
     }
 
     addTodo = value => {
-        this.setState({ todos: [...this.state.todos, value] })
+        const todo = {
+            text: value,
+            completed: false
+        }
+        this.setState({ todos: [...this.state.todos, todo] })
     }
 
     render() {

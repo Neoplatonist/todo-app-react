@@ -3,9 +3,11 @@ import './listItem.css'
 
 class ListItem extends Component {
     render() {
+        const { text } = this.props.todo
+
         return (
             <li>
-                {this.props.todo}
+                {text}
             </li>
         )
     }
