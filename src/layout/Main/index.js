@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './main.css'
 
 import Form from '../../Form'
+import TodoList from '../../TodoList'
 
 class Main extends Component {
     state = {
@@ -16,6 +17,8 @@ class Main extends Component {
         return (
             <main>
                 <Form addTodo={this.addTodo} />
+
+                <TodoList todos={this.state.todos} />
             </main>
         )
     }
