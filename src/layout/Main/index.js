@@ -25,8 +25,9 @@ class Main extends Component {
         this.setState({ todos: newList })
     }
 
-    deleteTodo = value => {
-
+    deleteTodo = delTodo => {
+        const newList = this.state.todos.filter(todo => todo !== delTodo)
+        this.setState({ todos: newList })
     }
 
     render() {
@@ -34,7 +35,11 @@ class Main extends Component {
             <main>
                 <Form addTodo={this.addTodo} />
 
-                <TodoList todos={this.state.todos} completedTodo={this.completedTodo} />
+                <TodoList
+                    todos={this.state.todos}
+                    completedTodo={this.completedTodo}
+                    deleteTodo={this.deleteTodo}
+                />
             </main>
         )
     }

@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import './listItem.css'
 
 class ListItem extends Component {
-
-    handleCompleted = () => {
-        console.log('clicked list item')
+    handleCompleted = event => {
         this.props.completedTodo(this.props.todo)
+    }
+
+    handleDelete = event => {
+        this.props.deleteTodo(this.props.todo)
     }
 
     render() {
@@ -19,6 +21,8 @@ class ListItem extends Component {
                 >
                     {text}
                 </p>
+
+                <button onClick={this.handleDelete}>Delete</button>
             </li >
         )
     }
